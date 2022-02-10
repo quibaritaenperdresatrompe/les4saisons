@@ -1,0 +1,25 @@
+.App-root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: system-ui;
+}
+
+.App-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.App-content {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.App-actions {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}

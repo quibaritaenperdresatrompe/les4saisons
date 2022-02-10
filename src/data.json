@@ -1,0 +1,32 @@
+{
+  "seasons": {
+    "summer": {
+      "name": "Summer",
+      "icon": "☀️",
+      "next": "autumn",
+      "beginAt": { "month": 6, "day": 21 },
+      "endAt": { "month": 9, "day": 22 }
+    },
+    "autumn": {
+      "name": "Autumn",
+      "icon": "🍂",
+      "next": "winter",
+      "beginAt": { "month": 9, "day": 23 },
+      "endAt": { "month": 12, "day": 20 }
+    },
+    "winter": {
+      "name": "Winter",
+      "icon": "❄️",
+      "next": "spring",
+      "beginAt": { "month": 12, "day": 21 },
+      "endAt": { "month": 3, "day": 19 }
+    },
+    "spring": {
+      "name": "Spring",
+      "icon": "🌸",
+      "next": "summer",
+      "beginAt": { "month": 3, "day": 20 },
+      "endAt": { "month": 6, "day": 20 }
+    }
+  }
+}
