@@ -11,7 +11,8 @@
     "build": "rimraf dist && parcel build",
     "start": "parcel",
     "format": "prettier --write {*,src/**/*}.{js,json,md,html}",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "commit": "git-cz"
   },
   "dependencies": {
     "date-fns": "^2.28.0",
@@ -20,6 +21,7 @@
   },
   "devDependencies": {
     "@parcel/reporter-bundle-analyzer": "^2.3.0",
+    "git-cz": "^4.8.0",
     "husky": "^7.0.4",
     "lint-staged": ">=10",
     "parcel": "^2.3.0",
