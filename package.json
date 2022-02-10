@@ -14,7 +14,7 @@
     "prepare": "husky install",
     "commit": "git-cz",
     "lint": "eslint src",
-    "test": "jest --watch"
+    "test": "jest --watchAll --coverage"
   },
   "dependencies": {
     "date-fns": "^2.28.0",
@@ -57,6 +57,21 @@
     "testEnvironment": "jsdom",
     "moduleNameMapper": {
       "\\.css$": "identity-obj-proxy"
+    },
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ],
+    "coverageReporters": [
+      "text-summary",
+      "lcov"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "statements": 38,
+        "branches": 30,
+        "functions": 42,
+        "lines": 37
+      }
     }
   }
 }
