@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 import "./Modal.css";
-import Season from "./Season";
 
 function Modal({ label, children }) {
   const [open, setOpen] = useState(false);
