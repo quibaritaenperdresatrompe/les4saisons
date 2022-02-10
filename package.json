@@ -13,7 +13,8 @@
     "format": "prettier --write {*,src/**/*}.{js,json,md,html}",
     "prepare": "husky install",
     "commit": "git-cz",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "test": "jest --watch"
   },
   "dependencies": {
     "date-fns": "^2.28.0",
@@ -21,11 +22,19 @@
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.17.2",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
     "@parcel/reporter-bundle-analyzer": "^2.3.0",
+    "@testing-library/jest-dom": "^5.16.2",
+    "@testing-library/react": "^12.1.2",
+    "babel-jest": "^27.5.1",
     "eslint": "^8.8.0",
     "eslint-config-react-app": "^7.0.0",
     "git-cz": "^4.8.0",
     "husky": "^7.0.4",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^27.5.1",
     "lint-staged": ">=10",
     "parcel": "^2.3.0",
     "prettier": "^2.5.1",
@@ -37,5 +46,17 @@
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "moduleNameMapper": {
+      "\\.css$": "identity-obj-proxy"
+    }
   }
 }

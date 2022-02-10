@@ -11,3 +11,7 @@ Lance la [CLI git-cz](https://github.com/streamich/git-cz) pour écrire des mess
 ### `lint`
 
 Lint le code avec [ESLint](https://eslint.org/).
+
+### `test`
+
+Lance la suite de tests unitaires avec [Jest](https://jestjs.io/).
