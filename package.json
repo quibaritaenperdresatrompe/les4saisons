@@ -8,7 +8,7 @@
   "license": "MIT",
   "source": "src/index.html",
   "scripts": {
-    "build": "parcel build",
+    "build": "rimraf dist && parcel build",
     "start": "parcel"
   },
   "dependencies": {
@@ -17,6 +17,8 @@
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "parcel": "^2.2.1"
+    "@parcel/reporter-bundle-analyzer": "^2.3.0",
+    "parcel": "^2.3.0",
+    "rimraf": "^3.0.2"
   }
 }
