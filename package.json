@@ -8,7 +8,7 @@
   "license": "MIT",
   "source": "src/index.html",
   "scripts": {
-    "build": "rimraf dist && parcel build",
+    "build": "rimraf dist && parcel build --reporter @parcel/reporter-bundle-analyzer",
     "start": "parcel",
     "format": "prettier --write {*,src/**/*}.{js,json,md,html}",
     "prepare": "husky install",
