@@ -1,31 +1,71 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useState } from "react";
 import { isWithinInterval } from "date-fns";
+import { ThemeProvider, createUseStyles } from "react-jss";
 
-import "./App.css";
 import Season from "./Season";
 import Modal from "./Modal";
 import data from "./data.json";
+import ThemeButton from "./ThemeButton";
 
 const NextSeason = lazy(() => import("./NextSeason"));
 
 const season = current(data.seasons);
 
+const useStyles = createUseStyles({
+  root: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    fontFamily: "system-ui",
+    height: "100vh",
+    backgroundColor: ({ theme }) => (theme === "light" ? "white" : "black"),
+    color: ({ theme }) => (theme === "light" ? "black" : "white"),
+  },
+  header: {
+    width: "100%",
+    display: "flex",
+    justifyContent: "flex-end",
+  },
+  main: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  content: {
+    marginTop: 8,
+    marginBottom: 8,
+  },
+  actions: {
+    marginTop: 8,
+    marginBottom: 8,
+  },
+});
+
 function App() {
+  const [theme, setTheme] = useState("light");
+  const toggle = () => setTheme(theme === "dark" ? "light" : "dark");
+  const classes = useStyles({ theme });
   return (
-    <div className="App-root">
-      <main className="App-main">
-        <div className="App-content" data-testid="content">
-          <Season name={season[0]} />
-        </div>
-        <div className="App-actions" data-testid="actions">
-          <Modal label="Et après ?">
-            <Suspense fallback={<div>Loading...</div>}>
-              <NextSeason name={season[1].next} />
-            </Suspense>
-          </Modal>
-        </div>
-      </main>
-    </div>
+    <ThemeProvider theme={{ type: theme, toggle }}>
+      <div className={classes.root}>
+        <header className={classes.header}>
+          <ThemeButton />
+        </header>
+        <main className={classes.main}>
+          <div className={classes.content} data-testid="content">
+            <Season name={season[0]} />
+          </div>
+          <div className={classes.actions} data-testid="actions">
+            <Modal label="Et après ?">
+              <Suspense fallback={<div>Loading...</div>}>
+                <NextSeason name={season[1].next} />
+              </Suspense>
+            </Modal>
+          </div>
+        </main>
+      </div>
+    </ThemeProvider>
   );
 }
 
